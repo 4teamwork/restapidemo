@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:inflator="http://namespaces.zope.org/inflator"
+    i18n_domain="restapidemo">
+
+    <include package="ftw.inflator" file="meta.zcml" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="restapidemo"
+        description="RESTAPI Demo"
+        directory="profiles/default"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <inflator:customize
+        product="RESTAPI Demo"
+        />
+
+    <inflator:bundle
+        title="RESTAPI Demo"
+        profiles="ftw.inflator:setup-language
+                  plonetheme.sunburst:default
+                  restapidemo:default"
+        />
+
+</configure>
